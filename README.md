@@ -165,7 +165,7 @@ As a user, I want to create a blog platform where I can publish posts, manage co
 4. Enable user authentication and authorization for managing posts and comments.
 5. Implement pagination for the blog post list and comments section.
 
-## Recommended Tutorials:
+## Recommended Tutorials & Documentations:
 1. **Git and GitHub Tutorial for Beginners**
 <br>LINK: https://www.youtube.com/watch?v=tRZGeaHPoaw
 
