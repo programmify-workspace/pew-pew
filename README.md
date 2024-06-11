@@ -166,17 +166,31 @@ As a user, I want to create a blog platform where I can publish posts, manage co
 5. Implement pagination for the blog post list and comments section.
 
 ## Recommended Tutorials:
-1. **Tutorial for Beginners: Learn Node in 1 Hour**
+1. **Git and GitHub Tutorial for Beginners**
+<br>LINK: https://www.youtube.com/watch?v=tRZGeaHPoaw
+
+2. **Tutorial for Beginners: Learn Node in 1 Hour**
 <br>LINK: https://www.youtube.com/watch?v=TlB_eWDSMt4
 <br>Learn the Baisc of Nodejs
 
-2. **How to build a REST API with Node js & Express**
+3. **React Tutorial for Beginners**
+<br>LINK: https://www.youtube.com/watch?v=SqcY0GlETPk
+
+4. **How to build a REST API with Node js & Express**
    <br>LINK: https://www.youtube.com/watch?v=pKd0Rpw7O48
    <br>**Modern - Build a REST API with Node JS and Express | CRUD API Tutorial**
   <br>LINK: https://www.youtube.com/watch?v=l8WPWK9mS5M
-
   <br>Learn how to create RestFUL API and Express
+  
+5. **What is MySQL? Everything You Need to Know**
+<br>LINK: https://www.talend.com/resources/what-is-mysql/#:~:text=MySQL%20is%20a%20relational%20database,information%20in%20a%20corporate%20network.
+<br>**MySQL Tutorial for Beginners [Full Course]**
+<br>LINK: https://www.youtube.com/watch?v=7S_tz1z_5bA    
 
+6. **Beginners Guide: MongoDB Basics**
+<br>LINK: https://www.mongodb.com/resources/products/fundamentals/basics
+<br>**Learn MongoDB in 1 Hour 🍃 (2023)**
+<br>LINK: https://www.youtube.com/watch?v=c2M-rlkkT5o
 
 ## Tools You Might Need
 
