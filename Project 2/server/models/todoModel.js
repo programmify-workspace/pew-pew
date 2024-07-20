@@ -1,11 +1,12 @@
 const pool = require('../db/database')
 
-// constructor
+// CONSTRUCTOR
 const Todo = function(todo) {
   this.title = todo.title;
   this.completed = todo.completed;
 };
 
+// CREATE MODEL
 Todo.create = async (newTodo, result) => {
   try {
     const [res] = await pool.query("INSERT INTO todos SET ?", newTodo);
@@ -16,6 +17,7 @@ Todo.create = async (newTodo, result) => {
   }
 };
 
+// READ MODEL
 Todo.getAll = async result => {
   try {
     const [res] = await pool.query("SELECT * FROM todos");
@@ -26,6 +28,7 @@ Todo.getAll = async result => {
   }
 };
 
+// UPDATE MODEL
 Todo.updateById = async (id, todo, result) => {
   try {
     const [res] = await pool.query("UPDATE todos SET title = ?, completed = ? WHERE id = ?", [todo.title, todo.completed, id]);
@@ -40,6 +43,7 @@ Todo.updateById = async (id, todo, result) => {
   }
 };
 
+// DELETE MODEL
 Todo.remove = async (id, result) => {
   try {
     const [res] = await pool.query("DELETE FROM todos WHERE id = ?", id);

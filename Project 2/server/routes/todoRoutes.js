@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 const todos = require('../controllers/todoController');
 
-// Create a new Todo
+// CREATE
 router.post('/', todos.create);
 
-// Retrieve all Todos
+// READ
 router.get('/', todos.findAll);
 
-// Update a Todo with id
+// UPDATE
 router.put('/:id', todos.update);
 
-// Delete a Todo with id
+// DELETE
 router.delete('/:id', todos.delete);
 
 module.exports = router;

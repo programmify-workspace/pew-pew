@@ -1,6 +1,6 @@
 const Todo = require('../models/todoModel');
 
-// Create and Save a new Todo
+// CREATE CONTROLLER
 exports.create = async (req, res) => {
   // Validate request
   if (!req.body.title) {
@@ -9,13 +9,13 @@ exports.create = async (req, res) => {
     });
   }
 
-  // Create a Todo
+  // CREATE TODO
   const todo = new Todo({
     title: req.body.title,
     completed: req.body.completed || false
   });
 
-  // Save Todo in the database
+  // SAVE TODO TO DB
   Todo.create(todo, (err, data) => {
     if (err)
       res.status(500).send({
@@ -25,7 +25,7 @@ exports.create = async (req, res) => {
   });
 };
 
-// Retrieve all Todos from the database
+// READ ALL TODO
 exports.findAll = (req, res) => {
   Todo.getAll((err, data) => {
     if (err)
@@ -36,7 +36,7 @@ exports.findAll = (req, res) => {
   });
 };
 
-// Update a Todo identified by the id in the request
+// UPDATE TODO
 exports.update = (req, res) => {
   // Validate Request
   if (!req.body.title) {
@@ -64,7 +64,7 @@ exports.update = (req, res) => {
   );
 };
 
-// Delete a Todo with the specified id in the request
+// DELETE TODO
 exports.delete = (req, res) => {
   Todo.remove(req.params.id, (err, data) => {
     if (err) {

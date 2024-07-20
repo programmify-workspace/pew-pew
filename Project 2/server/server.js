@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 const todoRoutes = require('./routes/todoRoutes');
 app.use('/api/todos', todoRoutes);
 
+// PORT
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
