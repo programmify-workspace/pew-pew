@@ -1,0 +1,10 @@
+CREATE DATABASE shorturls;
+
+USE shorturls;
+
+CREATE TABLE links (
+	id INT(11) AUTO_INCREMENT PRIMARY KEY,
+	longurl VARCHAR(255) NOT NULL,
+    shorturlid VARCHAR(255) NOT NULL,
+    count INT(11) DEFAULT 0
+);

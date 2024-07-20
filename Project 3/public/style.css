@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #111;
+    --bgB: #555;
+    --col: #eee;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: var(--bg);
+    color: var(--col);
+    font-weight: 600;
+}
+
+.form {
+    padding: 50px 20px;
+    background: var(--bgB);
+}
+
+.form>div {
+    width: 400px;
+    margin: 10px auto;
+}
+
+.form .form-element input,
+.form .form-element button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.form .form-element button {
+    background: var(--bg);
+    color: var(--col);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.form .result {
+    text-align: center;
+    border-top: 1px solid var(--col);
+    margin-top: 5px;
+}
+
+.list {
+    width: 800px;
+    margin: 40px auto;
+}
+
+.list h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.list table {
+    width: 100%;
+    text-align: center;
+}
+
+.list table thead tr {
+    background: var(--bgB);
+    color: var(--col);
+}
+
+.list table thead tr th,
+.list table tbody tr td {
+    padding: 5px;
+}
+
+.list table tbody tr:nth-child(odd) {
+    background: var(--col);
+}
