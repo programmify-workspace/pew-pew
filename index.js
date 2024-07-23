@@ -1,33 +1,33 @@
-require('dotenv').config();
-const nodemailer = require('nodemailer');
 const express = require('express');
+const router = require('./routes');
+const mysql = require('mysql'); // Correct import for mysql package
+const PDFDocument = require('pdfkit')
+const path = require('path')
+
 const app = express();
 
-const transporter = nodemailer.createTransport({
-    service:'gmail',
-    host:'smtp.gmail.com',
-    secure:false,
-    port:587,
-    auth:{
-        user:process.env.EMAIL,
-        pass:process.env.PASSWORD
+// Create MySQL connection
+const db = mysql.createConnection({
+    host: 'localhost', // Correct property name for host
+    user: 'root',
+    password: '',
+    database: 'invoices'
+});
+
+// Connect to MySQL
+db.connect((error) => {
+    if (error){
+        throw error;
     }
-})
-app.get('/',(req, res) =>{
-    res.send('hello world');
-    const mailOptions ={
-        form:process.env.EMAIL,
-        to:process.env.TO_EMAIL,
-        subject:'sending Email using Node js',
-        text:'that was easy!'
-    }
-    transporter.sendMail(mailOptions,(error, info) =>{
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Email sent: + info.response');
-        }
-    })
-})
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log('App listening on port 3000'));
+    console.log('Connected to MySQL database');
+});
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(router);
+
+app.listen(8080, () => {
+    console.log('Server is running on port 8080');
+});
