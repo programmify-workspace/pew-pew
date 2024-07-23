@@ -1,0 +1,28 @@
+:root {
+    --white-color: #fff;
+    --red-color: #ca2121;
+    --blue-color: #1f66ff;
+}
+
+body {
+    background: linear-gradient(45deg, var(--blue-color) 50%, var(--white-color) 10%, var(--red-color) 40%) !important;
+    color: #fff !important;
+}
+
+h1 {
+    font-family: fantasy,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;  
+}
+
+label {
+    font-size: 18px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+button[type="submit"] {
+    background-color: var(--white-color);
+    color: var(--blue-color)
+}
+
+form .text-white-custom {
+    color: var(--white-color);
+}

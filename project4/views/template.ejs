@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Template</title>
+  <style>
+   body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      font-family: Arial, sans-serif;
+      padding: 1%;
+      background-color: #f7f7f7;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    header {
+      display: grid;
+      padding: 2%;
+      width: 100%;
+      background-color: #eaeaea;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .first-header {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .second-header {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    main {
+      padding: 2%;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      text-align: justify;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1%;
+      background-color: #eaeaea;
+      border-top: 2px solid #ccc;
+      font-size: 12px;
+      color: #555;
+    }
+
+    <%- customStyles %>
+  </style>
+</head>
+<body>
+  <div class="container">
+  <header>
+    <% if (headerLogo) { %>
+      <img src="<%= headerLogo %>" alt="Header Logo" style="max-height: 50px">
+    <% } %>
+    <div class="first-header">
+      <h1><%= headerTitle %></h1>
+    </div>
+    <div class="second-header">
+      <p>Date: <%= headerDate %></p>
+      <p>Author: <%= authorName %></p>
+    </div>
+  </header>
+  <main>
+    <p><%= bodyContent %></p>
+  </main>
+  <footer>
+    <p><%= footerText %></p>
+    <% if (footerPageNumber === 'yes') { %>
+      <p>Page <span class="pageNumber"></span></p>
+    <% } %>
+  </footer>
+  </div>
+  <script>
+    if (typeof window !== 'undefined') {
+      document.querySelectorAll('.pageNumber').forEach((element, index) => {
+      element.textContent = index + 1;
+    });
+    }
+  </script>
+</body>
+</html>

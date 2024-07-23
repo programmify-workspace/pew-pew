@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>To do List</title>
+</head>
+<body>
+    <h1>ListX</h1>
+    <div class="form-container">
+        <form action="/add" method="post">
+            <input type="text" name="task" placeholder="Add Task">
+            <button type="submit">Add</button>
+        </form> 
+    </div>
+
+    <div class="list-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tasks:</th>
+                    <th>Status: </th>
+                    <th>Created Date:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% lists.forEach(function (list) { %>
+                    <tr class="<%= list.status ? 'completed-task' : '' %>" %>">
+                    <td class="task-cell">
+                        <%= list.task %>
+                    </td>
+                    <td>
+                        <form class="status-form" action="/changeStatus" method="post">
+                        <input type="hidden" name="id" value="<%= list.id %>">
+                        <input type="checkbox" name="status" value="<%= list.status ? false : true %>" <%= list.status ? 'checked' : '' %> onchange="this.form.submit()" >
+                        </form>
+                    </td>  
+                    <td class="date-cell"><%= list.date %></td>
+                    <!-- <td><%= %></td> -->
+                    <td class="actions-cell">                        
+                        <button class="edit-btn" data-id="<%= list.id %>" data-task="<%= list.task %>" data-date="<%= list.date %>" title="Edit">Edit</button>
+                        <form action="/delete" method="post">
+                            <input type="hidden" name="id" value="<%= list.id %>">
+                            <button class="delete-btn" type="submit" title="Delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <div id="update-form-container" class="hidden">
+        <form action="/update" method="post">
+            <h2>Update List</h2>
+            <input type="hidden" name="id" id="list-id">
+            <div>
+                <input type="text" id="task-input" name="task" placeholder="name" required>
+                <!-- <input type="text" id="date-input" name="date" placeholder="date" required>                | -->
+            </div>
+            <div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+</body>
+</html>
