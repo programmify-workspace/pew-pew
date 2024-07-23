@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>My portfolio | Audrey</title>
+</head>
+<body>
+    <nav>
+        <div class="nav__bar">
+            <a href="#"><span class="logo nav__logo">A</span>Audrey</a>
+            <div class="nav__menu__btn" id="menu-btn">
+                <i class="ri-menu-3-line"></i>
+            </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="nav__desk" id="nav-desk">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="section__container header__container" id="home">
+        <div class="header__image">
+            <img src="assets/profile pic.png.png" alt="header">
+        </div>
+        <div class="header__content">
+            <div>
+                <h1>Audrey<br />User Interface<br />FullStack Developer</h1>
+            </div>
+            <p class="section__description">
+                I'm a dedicated web developer focused on creating
+                responsive and accessible web applications that 
+                enhance user experience through innovative design and 
+                efficient functionality. I am passionate about staying 
+                updated with the latest web technologies and standards
+                to deliver robust solutions that meet both client 
+                requirements and industry best practices.
+            </p>
+            <div class="header__btn">
+                <button class="btn">Hire Me Now</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="section__container about__container" id="about">
+        <div class="about__image">
+            <img src="assets/profile pic.png.png" alt="bg" class="about__img"/>
+        </div>
+        <div class="about__content">
+            <h2 class="section__header">Bit About Me</h2>
+            <p class="section__description">
+                I'm passionate about tech because it empowers me to solve
+                complex problems, innovate solutions, and continuously 
+                learn in a rapidly evolving landscape. It excites me to explore 
+                new technologies, understand their potential applications, and contribute to 
+                shaping the future through technological advancements.
+            </p>
+            <div class="about__btn">
+                <button class="btn">Download CV</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section__container service__container" id="service">
+        <h2 class="section__header">My Services</h2>
+        <div class="service__grid">
+            <div class="service__card">
+                <span><i class="ri-windows-fill"></i></span>
+                <h4>Website Design</h4>
+                <p>
+                    We craft user-friendly interfaces that engage visitors and achieve your online goals with minimum effort.
+                </p>
+            </div>
+            <div class="service__card">
+                <span><i class="ri-store-line"></i></span>
+                <h4>E-Commerce Solutions</h4>
+                <p>
+                    We build secure, scalable, and user-centric online stores that enhance the shopping experience and drive conversions.
+                </p>
+            </div>
+            <div class="service__card">
+                <span><i class="ri-smartphone-fill"></i></span>
+                <h4>Mobile Development</h4>
+                <p>
+                    From iOS to Android, we create apps that deliver seamless performance and keep users coming back for more.
+                </p>
+            </div>
+            <div class="service__card">
+                <span><i class="ri-share-fill"></i></span>
+                <h4>Content Marketing</h4>
+                <p>
+                    Our services include creating blog posts, videos, and social content that drives traffic and engagement.
+                </p>
+            </div>
+            <div class="service__card">
+                <span><i class="ri-seo-line"></i></span>
+                <h4>SEO</h4>
+                <p>
+                    Our SEO strategies are tailored to your specific goals, helping you reach your target audience and grow your online presence.
+                </p>
+            </div>
+            <div class="service__card">
+                <span><i class="ri-share-circle-line"></i></span>
+                <h4>Digital Marketing</h4>
+                <p>
+                    From pay-per-click (PPC) advertising to social media marketing, we ensure your brand stands out in the crowded digital landscape.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section__container portfolio__container" id="portfolio">
+        <h2 class="section__header">My Portfolio</h2>
+        <p class="section__description">
+            explore a showcase of my diverse projects, demonstrating my skill web Development,
+            design, and beyound. Each project reflects my for creating impactful and innovative
+            digital experience.
+        </p>
+        <div class="portfolio__grid">
+            <div class="portfolio__card">
+                <img src="assets/image 6.jpg" alt="portfolio">
+            </div>
+            <div class="portfolio__card">
+                <img src="assets/image 5.jpg" alt="portfolio">
+            </div>
+            <div class="portfolio__card">
+                <img src="assets/imgae 4.jpg" alt="portfolio">
+            </div>
+            <div class="portfolio__card">
+                <img src="assets/image 6.jpg" alt="portfolio">
+            </div>
+            <div class="portfolio__card">
+                <img src="assets/image 5.jpg" alt="portfolio">
+            </div>
+            <div class="portfolio__card">
+                <img src="assets/photo JPEG 1.jpg" alt="portfolio">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact form start-->
+    <section>
+        <div class="contact">
+            <h1>Contact Me</h1>
+            <hr>
+            <form action="https://formsubmit.co/percysmith056@gmail.com" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+                <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+                <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <!-- Contact form end -->
+
+
+
+        <!-- <div class="portfolio__banner">
+            <div class="portfolio__banner__card">
+                <span><i class="ri-macbook-line"></i></span>
+                <h4>15+ Projects</h4>
+                <p>Delivered</p>
+            </div>
+            
+        <div class="portfolio__banner">
+            <div class="portfolio__banner__card">
+                <span><i class="ri-discuss-line"></i></span>
+                <h4>15+ Happy</h4>
+                <p>self Improvement</p>
+            </div>
+            <div class="portfolio__banner">
+                <div class="portfolio__banner__card">
+                    <span><i class="ri-heart-fill"></i></span>
+                    <h4>180+ Lovely</h4>
+                    <p>Feebback</p>
+                </div>
+            </div>
+        </div> -->
+
+    <section class="section__container contact__container" id="contact">
+        <div class="logo">A</div>
+        <h2 class="section__header">let's Talk With Me!</h2>
+        <p class="section__description">
+            An open invitation to contact and exploring collaborative open on my personal portfolio
+            website.
+        </p>
+        <div class="contact__socials">
+            <a href="https://twitter.com/Audreypercy_"><i class="ri-twitter-fill"></i></a>
+            <a href="https://www.linkedin.com/in/audrey-percy-ba0923293?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEcmWOgBnnQ5yXgHkT3opavfLAGZV_PyIcY&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BuyNpdiWOSJONiN28becEeQ%3D%3D"><i class="ri-linkedin-fill"></i></a>
+            <a href="https://github.com/account"><i class=""><i class="ri-github-fill"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=61556746318556&__tn__=-UC*F"><i class="ri-facebook-fill"></i></a>
+            <a href="audreypercy"><i class="ri-discord-fill"></i></a>
+        </div>
+    </section>
+    <footer class="footer">
+        Copyright @ 2024 web Design Mastery. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+</body>
+</html>
