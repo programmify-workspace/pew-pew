@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>QuickMailer</title>
+</head>
+<body>
+    <div class="container">
+        <h1>QuickMailer</h1>
+        <h4>Send an email quick with <b>QuickMailer</b></h4>
+
+        <form action="/send" method="post" id="mainForm">
+            <div class="first-half">
+                <div class="input-container">
+                    <label for="subjectInput">SUBJECT: </label>
+                    <input type="text" name="subject" id="subjectInput" placeholder="Subject" required>
+                </div>
+        
+                <div class="input-container">
+                    <label for="emailInput" id="emailLabel">TO: </label>
+                    <input type="hidden" name="emails" id="emailsInput">
+                    <div>
+                        <input type="text" name="email" id="emailInput" placeholder="Email" >
+                        <button type="button" onclick="addEmail()">Add Email</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="second-half">
+                <label for="messageInput">Enter The Message You Wish To Send: </label>
+                <textarea name="message" id="messageInput" rows="10" cols="150" maxlength="20000" placeholder="Message" required></textarea>
+                <div id="emailError" style="color: red; background-color: #becc00; padding: 1%; display: none; margin-top: 7px;">Please enter a valid email address.</div>
+                
+                <button type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>        
+    </div>
+</body>
+</html>
