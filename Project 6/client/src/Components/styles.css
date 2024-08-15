@@ -1,0 +1,55 @@
+.swiper {
+    width: 90vw;
+    height: 100vh;
+    border-radius: 10px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.yiieldy {
+    background-image: url('../Assets/yiieldy.webp');
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.logicgraph {
+    background-image: url('../Assets/logicgraph.webp');
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.emakaamadi {
+    background-image: url('../Assets/emekaamadi.webp');
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.footer {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}

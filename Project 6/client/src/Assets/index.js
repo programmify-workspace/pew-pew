@@ -1,0 +1,8 @@
+export { default as Logo } from './Logo.webp'
+export { default as Software } from './softwareeng.webp'
+export { default as Web3 } from './web3.webp'
+export { default as Kavod } from './Kavod.webp'
+export { default as Yiieldy } from './yiieldy.webp'
+export { default as Logicgraph } from './logicgraph.webp'
+export { default as EmekaAmadiFound } from './emekaamadi.webp'
+export { default as Caravan } from './Caravan.webp'
