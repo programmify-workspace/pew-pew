@@ -28,22 +28,21 @@ export default function Projects() {
       <section>
         <div className="px-4 py-16 mx-auto max-w-screen-[1443px] md:px-24 lg:px-8 lg:py-20">
           <div className="projects-list flex flex-col justify-center items-center max-w-screen-[1443px]">
-            {/* Render project with ID 1 */}
             {projects
               .filter(project => project.id === 1)
               .map(project => (
                 <div key={project.id} className="project-card overflow-hidden transition-shadow duration-300 flex justify-center max-w-screen-[1443px]">
                   <a href={`https://www.yiieldy.com/`} target="_blank" rel="noopener noreferrer">
-                    <img src={project.image_url} alt={project.name} className="custom-image-class lg:w-[90vw]" />
+                    <img src={project.image_url} alt={project.name} className="custom-image-class lg:w-[90vw] w-full" />
                   </a>
                 </div>
               ))}
 
-            <div className="grid gap-8 lg:grid-cols-2 justify-center mt-20 mx-auto">
+            <div className="grid gap-8 lg:grid-cols-2 grid-cols-1 justify-center mt-20 mx-auto">
               {projects
                 .filter(project => project.id === 2 || project.id === 3)
                 .map(project => (
-                  <div key={project.id} className="project-card special-design-2-3 flex m-5 px-10">
+                  <div key={project.id} className="project-card special-design-2-3 flex m-5 lg:px-10 px-0">
                     <a href={project.id === 2 ? "https://logicgraph.io/" : "https://emekaamadifoundation.org/"} target="_blank" rel="noopener noreferrer">
                       <img src={project.image_url} alt={project.name} className="special-image-class w-full" />
                     </a>
@@ -66,7 +65,7 @@ export default function Projects() {
               .map(project => (
                 <div key={project.id} className="project-card">
                   <a href={``} target="_blank" rel="noopener noreferrer">
-                    <img src={project.image_url} alt={project.name} className="default-image-class" />
+                    <img src={project.image_url} alt={project.name} className="default-image-class w-full" />
                   </a>
                 </div>
               ))}

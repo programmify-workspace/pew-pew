@@ -16,9 +16,9 @@ export default function Skills() {
     ];
 
     return (
-        <div className="h-screen flex justify-center items-center dark:bg-black rounded-[10px]">
+        <div className="h-screen flex justify-center items-center dark:bg-black rounded-[10px] lg:px-0 p-4">
             <div className="max-w-[1443px] mx-auto w-full">
-                <h4 className="text-3xl md:text-5xl dark:text-white font-bold mb-6 text-center mb-20">Skills</h4>
+                <h4 className="text-3xl md:text-5xl dark:text-white font-bold lg:mb-6 mb-0 text-center mb-20 mt-4">Skills</h4>
                 {skills.map((skill, index) => (
                     <div className="mb-7" key={index}>
                         <div className="flex justify-between py-1">

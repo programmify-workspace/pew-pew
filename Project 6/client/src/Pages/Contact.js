@@ -33,25 +33,25 @@ export default function Contact() {
       {/* Nav */}
       <Nav />
       {/* Contact Me */}
-      <div className="px-8">
+      <div className="lg:px-8 px-2">
         <div className="bg-black px-4 py-16 mx-auto max-w-screen-[1443px] md:px-24 lg:px-8 lg:py-20 rounded-[10px]">
           <div className="flex flex-col items-center justify-between xl:flex-row">
-            <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-              <a
-                href="/"
-                aria-label="Home"
+            <div className="w-full max-w-[1443px] mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
+              <div
                 className="inline-flex items-center border border-primaryColor p-4 rounded-full bg-primaryColor"
               >
-                <img
-                  className="object-center w-auto h-60"
-                  src={Kavod}
-                  alt="iamkavod"
-                />
-              </a>
+                <a href='' className="inline-flex justify-center items-center border border-primaryColor p-4 rounded-full bg-primaryColor w-full">
+                  <img
+                    className="object-center w-auto h-60"
+                    src={Kavod}
+                    alt="iamkavod"
+                  />
+                </a>
+              </div>
             </div>
             <div className="w-full max-w-[800px]">
-              <div className="rounded p-7 sm:p-10">
-                <h3 className="mb-4 font-semibold sm:mb-6 text-[50px] text-white">
+              <div className="rounded lg:p-7 p-0">
+                <h3 className="mb-4 font-semibold sm:mb-6 lg:text-[50px] text-xl text-white">
                   Let's Collaborate!
                 </h3>
                 <form onSubmit={handleSubmit}>

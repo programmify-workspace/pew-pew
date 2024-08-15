@@ -5,7 +5,7 @@ export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <main class="px-4 py-6 mx-auto lg:py-8 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <main class="px-2 py-6 mx-auto lg:py-8 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-5 lg:px-8">
       <div class="relative flex items-center justify-between lg:justify-center lg:space-x-40">
         <ul class="flex items-center hidden space-x-14 lg:flex">
           <li>

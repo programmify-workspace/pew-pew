@@ -47,28 +47,24 @@ export default function About() {
       </section>
 
       {/* What I am Doing */}
-      <section className='p-8'>
-        <div className="mb-16 bg-black rounded-xl p-8">
+      <section className='lg:p-8 px-2'>
+        <div className="mb-16 bg-black rounded-xl lg:p-8 px-1">
           <div className="bg-black">
             <div className="px-4 py-16 mx-auto max-w-screen-[1443px] md:px-24 lg:px-8 lg:py-20">
               <div className="mb-10 md:mx-auto justify-center text-center max-w-[1443px] md:mb-12">
-                <p className="text-base text-white text-xl lg:w-[800px] mx-auto uppercase mb-20">
+                <p className="text-base text-white text-md lg:w-[800px] mx-auto uppercase mb-20">
                   What I'm Doing
                 </p>
-                <h2 className="max-w-[1443px] mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
-
+                <h2 className="max-w-[1443px] mb-6 font-sans text-xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
                   Web Development
                 </h2>
-                <h2 className="max-w-[1443px] mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
-
+                <h2 className="max-w-[1443px] mb-6 font-sans text-xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
                   Web3
                 </h2>
-                <h2 className="max-w-[1443px] mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
-
+                <h2 className="max-w-[1443px] mb-6 font-sans text-xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
                   UIUX Design
                 </h2>
-                <h2 className="max-w-[1443px] mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
-
+                <h2 className="max-w-[1443px] mb-6 font-sans text-xl font-bold leading-none tracking-tight text-white lg:text-[50px] md:mx-auto uppercase">
                   Forex Trading
                 </h2>
               </div>
@@ -174,7 +170,7 @@ export default function About() {
       </section>
 
       {/* Skills */}
-      <section className='px-8'>
+      <section className='lg:px-8 px-2'>
         <Skills />
       </section>
 
