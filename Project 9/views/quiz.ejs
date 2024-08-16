@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <h1>Quiz Time!</h1>
+    <form action="/submit-quiz" method="POST">
+        <% questions.forEach((question, index) => { %>
+            <h3><%= question.text %></h3>
+            <% if (Array.isArray(question.options) && question.options.length > 0) { %>
+                <% question.options.forEach((option, optionIndex) => { %>
+                    <input type="radio" name="q<%= index %>" value="<%= String.fromCharCode(65 + optionIndex) %>">
+                    <%= option %><br>
+                <% }); %>
+            <% } else { %>
+                <p>No options available for this question.</p>
+            <% } %>
+        <% }); %>
+        <button type="submit">Submit Quiz</button>
+    </form>    
+</body>
+
+</html>
