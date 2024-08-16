@@ -3,30 +3,39 @@ import { Kavod } from '../Assets'
 import { Footer, Nav } from '../UI'
 
 export default function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('https://iamkavod-portfolio.vercel.app/api/sendmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email, message }),
-    });
-
-    if (response.ok) {
-      alert('Mail sent successfully!');
-      setName('');
-      setEmail('');
-      setMessage('');
-    } else {
-      alert('Failed to send mail.');
+    try {
+      const apiLink = 'https://iamkavod-portfolio.vercel.app/api/send-mail';
+      const response = await axios.post(apiLink, formData);
+      
+      if (response.status === 200) {
+        setStatus('Email sent successfully!');
+      } else {
+        setStatus('Failed to send email.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setStatus('Failed to send email.');
     }
   };
+
 
   return (
     <main>
@@ -63,8 +72,8 @@ export default function Contact() {
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="name"
                       name="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      value={formData.name}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="mb-1 sm:mb-2">
@@ -75,8 +84,8 @@ export default function Contact() {
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="email"
                       name="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                     <div className="mb-1 sm:mb-2">
                       <textarea
@@ -86,8 +95,8 @@ export default function Contact() {
                         className="flex-grow w-full h-40 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         id="message"
                         name="message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        value={formData.message}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
