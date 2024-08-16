@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD with Sorting, Filtering, Pagination</title>
+</head>
+
+<body>
+    <h1>Records</h1>
+
+    <form action="/" method="GET">
+        <input type="text" name="search" placeholder="Search" value="<%= search %>">
+        <button type="submit">Search</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th><a href="/?sort=id&order=<%= sort === 'id' && order === 'ASC' ? 'DESC' : 'ASC' %>">ID</a></th>
+                <th><a href="/?sort=name&order=<%= sort === 'name' && order === 'ASC' ? 'DESC' : 'ASC' %>">Name</a></th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% records.forEach(record=> { %>
+                <tr>
+                    <td>
+                        <%= record.id %>
+                    </td>
+                    <td>
+                        <%= record.name %>
+                    </td>
+                    <td>
+                        <%= record.description %>
+                    </td>
+                    <td>
+                        <!-- Delete Button -->
+                        <form action="/delete/<%= record.id %>" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <!-- Edit Button -->
+                        <button
+                            onclick="openEditForm('<%= record.id %>', '<%= record.name %>', '<%= record.description %>')">Edit</button>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <div>
+        <% if (page> 1) { %>
+            <a href="/?page=<%= page - 1 %>">Previous</a>
+            <% } %>
+
+                <span>Page <%= page %> of <%= totalPages %></span>
+
+                <% if (page < totalPages) { %>
+                    <a href="/?page=<%= page + 1 %>">Next</a>
+                    <% } %>
+    </div>
+
+    <!-- Create New Record -->
+    <h2>Create New Record</h2>
+    <form action="/create" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <button type="submit">Create</button>
+    </form>
+
+    <!-- Edit Record Form -->
+    <div id="editForm" style="display:none;">
+        <h2>Edit Record</h2>
+        <form id="editRecordForm" method="POST">
+            <input type="text" name="name" id="editName" placeholder="Name" required>
+            <textarea name="description" id="editDescription" placeholder="Description" required></textarea>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
