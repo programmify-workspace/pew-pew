@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="intro">
+            <a href="/">    
+                <h1>Fushop</h1>
+                <p>The Future of shopping</p>
+            </a>
+            </div>
+            <ul>
+                <li>
+                    <a href="/cart" title="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+                <hr />
+                <li>
+                    <a href="/explore" title="explore"><i class="fa-solid fa-compass"></i></a>
+                </li>
+                <li class="current-page">
+                    <a href="/checkout" title="payment"><i class="fa-solid fa-credit-card"></i></a>
+                </li>
+                <li>
+                    <a href="#" title="saved"><i class="fa-solid fa-bookmark"></i></a>
+                </li>
+                <li>
+                    <a href="#" title="support"><i class="fa-solid fa-headset"></i></a>
+                </li>
+            </ul>
+        </aside>
+        <section class="checkout-container">
+            <h1 class="checkout-title">Checkout</h1>
+            
+            <% try { %>
+                <% if (errMsg && errMsg.length > 0) { %>
+                    <h3 class="errMsg"><%= errMsg %></h3>
+                <% } %>
+            <% } catch (e) { %>
+
+            <% } %>
+            
+            <% if (items && items.length > 0) { %>
+                <div class="product-list">
+                    <% items.forEach(item => { %>
+                        <div class="product-card">
+                            <img src="<%= item.img %>" alt="<%= item.name %>" class="product-image">
+                            <div class="product-details">
+                                <h2 class="product-name large-fontsize"><%= item.name %></h2>
+                                <p class="product-description avg-fontsize"><%= item.descr %></p>
+                                <div class="product-price-quantity">
+                                    <p class="product-price">$<%= item.price %></p>
+                                    <div class="quantity-control">
+                                        <label for="quantity-<%= item.id %>">Qty:</label>
+                                        <input type="number" id="quantity-<%= item.id %>" name="quantity" min="1" max="30" value="<%= item.quantity %>" class="quantity-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                <div class="checkout-summary">
+                    <h3>Order Summary</h3>
+                    <p>Total Items: <%= items.reduce((sum, item) => sum + item.quantity, 0) %></p>
+                    <p>Total Price: $<%= items.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2) %></p>
+                    <button class="purchase-btn">Proceed to Payment</button>
+                </div>
+            <% } else { %>
+                <div class="empty-cart">
+                    <p>Your cart is empty.</p>
+                    <a href="/" class="continue-shopping">Continue Shopping</a>
+                </div>
+            <% } %>
+        </section>
+
+        <style>
+            .checkout-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                font-family: Arial, sans-serif;
+            }
+
+            .checkout-title {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+                font-size: 36px;
+                text-decoration: underline;
+            }
+
+            .product-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .product-card {
+                display: flex;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 7px rgba(0, 0, 0, 0.274);
+                overflow: hidden;
+            }
+
+            .product-image {
+                max-height: 300px;
+                object-fit: cover;
+            }
+
+            .product-details {
+                padding: 15px;
+                flex-grow: 1;
+            }
+
+            .product-name {
+                margin: 0 0 10px;
+                color: #333;
+            }
+
+            .product-description {
+                font-size: 14px;
+                color: #666;
+                margin-bottom: 10px;
+            }
+
+            .product-price-quantity {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .product-price {
+                font-weight: bold;
+                color: #2196F3;
+            }
+
+            .quantity-control {
+                display: flex;
+                align-items: center;
+            }
+
+            .quantity-input {
+                width: 50px;
+                padding: 5px;
+                margin-left: 10px;
+            }
+
+            .checkout-summary {
+                margin-top: 20px;
+                background-color: #f5f5f5;
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            /* .checkout-button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .checkout-button:hover {
+                background-color: #45a049;
+            } */
+
+            .empty-cart {
+                text-align: center;
+                padding: 40px;
+                background-color: #f5f5f5;
+                border-radius: 8px;
+            }
+
+            .continue-shopping {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #2196F3;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+            .continue-shopping:hover {
+                background-color: #1976D2;
+            }
+        </style>
+    </div>
+</body>
+</html>

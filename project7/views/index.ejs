@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>fushop</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="intro">
+            <a href="/">    
+                <h1>Fushop</h1>
+                <p>The Future of shopping</p>
+            </a>
+            </div>
+            <ul>
+                <li>
+                    <a href="/cart" title="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+                <hr />
+                <li class="current-page">
+                    <a href="/explore" title="explore"><i class="fa-solid fa-compass"></i></a>
+                </li>
+                <li>
+                    <a href="/checkout" title="payment"><i class="fa-solid fa-credit-card"></i></a>
+                </li>
+                <li>
+                    <a href="#" title="saved"><i class="fa-solid fa-bookmark"></i></a>
+                </li>
+                <li>
+                    <a href="#" title="support"><i class="fa-solid fa-headset"></i></a>
+                </li>
+            </ul>
+        </aside>
+        <section class="main-content">
+        <% items.forEach(item => { %>
+        <form class="product-item" method="POST" action="/cart">
+            <a href="/productDetails/<%= item.id %>" class="product-link">
+                <div class="product-details">
+                    <img id="productImage" src="<%= item.img %>" alt="Product Image">
+                    <h2 id="productTitle" class="product-title"><%= item.name %></h2>
+                    <h3 id="productPrice" class="product-price">$<%= item.price %></h3>
+                    <p id="productDescription" class="product-description"><%= item.descr %></p>
+                </div>
+                <input type="hidden" id="hiddenProductId" name="productId" value="<%= item.id %>">
+                <input type="hidden" id="hiddenCartChecker" name="cartChecker" value="<% if(item.cartChecker){%><%= item.cartChecker %><% } else {%>false<% } %>">
+                <input type="hidden" id="hiddenProductTitle" name="productTitle" value="<%= item.name %>">
+                <input type="hidden" id="hiddenProductPrice" name="productPrice" value="<%= item.price %>">
+                <input type="hidden" id="hiddenProductDescription" name="productDescr" value="<%= item.descr %>">
+                <input type="hidden" id="hiddenProductImage" name="productImg" value="<%= item.img %>">
+
+                <button type="submit" class="<%= item.cartChecker ? 'added-to-cart' : 'add-to-cart' %>"><%= item.cartChecker ? 'added to cart' : 'add to cart' %></button>
+
+            </a>
+        </form>
+        <% }) %>
+        </section>
+    </div>
+</body>
+</html>
