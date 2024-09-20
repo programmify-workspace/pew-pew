@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form action="/submit-quiz" method="POST">
+        <% questions.forEach((question) => { %>
+            <div class="question">
+                <p><%= question.question %></p>
+                <label><input type="radio" name="question_<%= question.id %>" value="A"> <%= question.option_a %></label>
+                <label><input type="radio" name="question_<%= question.id %>" value="B"> <%= question.option_b %></label>
+                <label><input type="radio" name="question_<%= question.id %>" value="C"> <%= question.option_c %></label>
+                <label><input type="radio" name="question_<%= question.id %>" value="D"> <%= question.option_d %></label>
+            </div>
+        <% }); %>
+        <button type="submit">Submit Quiz</button>
+    </form>
+</body>
+</html>

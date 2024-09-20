@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Shortener</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script defer src="./view/app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>KorelMedia Link Shortener</h1>
+        <form id="link-form">
+            <input type="url" id="link" placeholder="Paste long link here" required>
+            <button type="submit">Shorten-link</button>
+        </form>
+
+        <table id="allLinksTable" class="table table-bordered">
+            <th>Full-link</th>
+            <th>Shorten-link</th>
+            <th>copiable-link</th>
+        </table>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

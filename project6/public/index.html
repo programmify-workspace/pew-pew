@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Portfolio</title>
+    <script defer src="./app.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h3> KorelDev /></h3>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="menu" id="navbarLinks">
+                <a href="#Home" class="nav-link">Home</a>
+                <a href="#About" class="nav-link">About</a>
+                <a href="#Projects" class="nav-link">Projects</a>
+                <a href="#Contact" class="nav-link">Contact</a>
+            </div>
+            </ul>
+        </nav>
+    </header>
+        <section id="Home">
+            <div class="hero_section">
+                <div class="hero_section_left">
+                    <p>Hello there</p>
+                    <h3>I'm a web</h3>
+                    <h3>Developer</h3>
+                    <p>I turn ideas to web</p>
+                </div>
+                <div class="hero_section_right">
+                    <img src="./profile.jpg" alt="photo">
+                </div>
+            </div>
+            <div class="hero_section_footer">
+                <div class="experience arrange">
+                    <h1 class="arrange_figure">1</h1>
+                    <p>Year of Experience</p>
+                </div>
+                <div class="projects arrange">
+                    <h1 class="arrange_figure">2</h1>
+                    <p>Projects Completed</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="About">
+            <h1>ABOUT</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores assumenda eos rerum labore ea nisi tempora velit, tenetur voluptatum ut deleniti ex debitis distinctio fugit. Illum nulla ex provident esse iusto, accusamus temporibus laudantium ipsum architecto aut ea, consequatur ducimus enim tempore! Corporis porro saepe natus ipsa veniam illo eligendi, qui, nihil aspernatur iusto quo ullam. Itaque, accusantium accusamus asperiores, facere repellat doloremque, laudantium doloribus nemo earum recusandae ratione excepturi voluptatem eligendi mollitia quasi quis? Corporis ipsam, perspiciatis labore illo rerum repellendus voluptas amet distinctio totam suscipit debitis libero reprehenderit hic molestiae alias? Ad adipisci vel cum iure in officia.</p>
+
+            <h3 class="skills_header">SKILLS RATING</h3>
+            <div class="skills">
+                <div class="full_level">
+                    <div class="html_level">HTML5 (80%)</div>
+                </div>
+                <div class="full_level">
+                    <div class="css_level">CSS (70%)</div>
+                </div>
+                <div class="full_level">
+                    <div class="javascript_level">JAVASCRIPT (60%)</div>
+                </div>
+                <div class="full_level">
+                    <div class="nodejs_level">NODEJS (50%)</div>
+                </div>
+            </div>
+        </section>
+        <h1 class="projects_header">PROJECTS</h1>
+        <section id="Projects">
+           
+        </section>
+
+        <h1 class="contact_header">CONTACTS</h1>
+        <section class="container" id="Contact">
+            <form action="/send_email" method="post">
+                <label for="name">Enter name here:</label>
+                <input type="text" id="name" placeholder="Williams Akorede" name="name">
+                <label for="email">Enter email here:</label>
+                <input type="email" id="email" placeholder="example@gmail.com" name="email">
+                <label for="subject">Enter subject here:</label>
+                <input type="text" id="subject" placeholder="Subject" name="subject">
+                <label for="message">Enter message here:</label>
+                <textarea id="message" placeholder="Your message here" name="message"></textarea>
+    
+                <button id="submit" type="submit">Send Message</button>
+            </form>
+        </section>
+</body>
+</html>

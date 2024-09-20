@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>KORELMEDIA STORE</h1>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="right_side">
+            <h3>Products lists</h3>
+        <div class="products">
+            <div>
+                <% products.forEach(product => { %>
+                <img src="/images/<%= product.product_image %>" alt="Product Image">
+                <p><%= product.product_name %></p>
+                <p><%= product.product_price %></p>
+                <form method="post" action="/add_cart">
+                    <input type="hidden" name="product_id" value="<%= product.product_id %>" />
+
+                    <input type="hidden" name="product_name" value="<%= product.product_name %>" />
+
+                    <input type="hidden" name="product_price" value="<%= product.product_price %>" />
+                <button>Add to Cart</button>
+                </form>
+            </div>
+            <% }) %>
+            </div>
+        </div>
+        </div>
+        <div class="carts">
+            <h3>Shopping Cart</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Item name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% 
+                    if(cart.length > 0)
+                    {
+                        let total = 0;
+
+                        cart.forEach(item => {
+                    %>
+                    <tr>
+                        <td><%= item.product_name %></td>
+                                    <td><%= item.quantity %></td>
+                                    <td><%= item.product_price %></td>
+                                    <td><%= parseFloat(item.quantity) * parseFloat(item.product_price) %></td>
+                                    <td><form method="get" action="/remove_item">
+                                        <input type="hidden" name="id" value="<%= item.product_id %>" />
+                                        <button class="removeBtn" type="submit">Remove</button>
+                                        </form>
+                                        </td>
+                    </tr>
+                    <%
+                                        total += parseFloat(item.quantity) * parseFloat(item.product_price);
+                                    })
+                                %>
+
+                                <tr>
+                                    <td colspan="3" align="right"><b>Total</b></td>
+                                    <td><%= total %></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <%
+                                }
+                                else
+                                {
+                                %>
+
+                                <tr>
+                                    <td colspan="5" align="center">No Item Found in Cart</td>
+                                </tr>
+
+                                <%
+                                }
+                                %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

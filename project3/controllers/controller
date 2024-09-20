@@ -1,0 +1,58 @@
+const express = require('express');
+const router = express.Router();
+const data = require('../models/database');
+
+// // Store a new link item
+
+router.post('/', (req, res) => {
+    const { fullLink, shortenedLink} = req.body;
+    data.query('INSERT INTO shortlinks (fullLink, shortenedLink) VALUES (?, ?)', [fullLink, shortenedLink], (err, result) => {
+        if (err) throw err;
+        res.status(201).json({ id: result.insertId, fullLink, shortenedLink });
+    });
+})
+
+// get all links
+router.get('/', (req, res) => {
+    data.query('SELECT * FROM shortlinks ORDER BY id DESC' , (err, results) => {
+        if (err) throw err;
+        res.status(200).json(results);
+    });
+});
+router.get("/:shorturl",(req,res) => {
+	let shorturl = req.params.shorturl;
+	let sql = `SELECT * FROM shortlinks WHERE shortenedLink='${shorturl}'`;
+	data.query(sql, (error,result) => {
+		if(error){
+			res.status(500).json({
+				status:"notok",
+				message:"Something went wrong"
+			});
+		} else {
+					res.redirect(result[0].fullLink);
+				}
+			})
+		});
+// get links by ID
+
+
+
+
+
+
+
+// router.get('/:shorturl', (req, res) => {
+// 	shorturl = req.params.shorturl
+
+//     res.send('hello')
+// });
+
+// const fetchAllLink = async () => {
+// 	const response = await fetch('http://localhost:3000/api/linkshortener');
+// 	const links = await response.json();
+// 	const serve = (shorturl) => links.find(link => link.shortenedLink === shorturl);
+// 	console.log(serve);
+// 	return serve;
+// }
+module.exports = router;
+
