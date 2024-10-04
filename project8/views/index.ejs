@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Inventory</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <h1>AutoHub</h1>
+    <p>Connecting you to your next ride...</p>
+  </header>
+
+  <section class="filters">
+    <form action="/" method="GET">
+      <div class="filter-group">
+        <label for="make">Make:</label>
+        <select name="make" id="make">
+          <option value="">All</option>
+          <% makes.forEach(make => { %>
+            <option value="<%= make.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') %>" <%= filters.make === make ? 'selected' : '' %>><%= make.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') %></option>
+            <!-- or make.charAt(0).toUpperCase() + make.slice(1).toLowerCase() for words like "range rover" to "Range Rover" -->
+          <% }); %>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="year">Year:</label>
+        <input type="number" name="year" id="year" min="1900" max="<%= new Date().getFullYear() %>" placeholder="Year" value="<%= filters.year ? filters.year : '' %>">
+      </div>
+      <div class="filter-group">
+        <label for="price">Max Price:</label>
+        <input type="number" name="price" id="price" min="0" placeholder="Max Price" value="<%= filters.price ? filters.price : '' %>">
+      </div>
+      <button type="submit">Filter</button>
+    </form>
+  </section>
+
+  <main>
+    <% if (message) { %>
+      <p class="no-cars-message"><%= message %></p>
+    <% } else { %>
+    <div class="car-list">
+      <% cars.forEach(car => { %>
+        <div class="car-item">
+          <img src="<%= car.img %>" alt="<%= car.make + ' ' + car.model %>">
+          <div class="car-details">
+            <h2><%= car.make %> <%= car.model %> (<%= car.year %>)</h2>
+            <p>Price: $<%= car.price %></p>
+            <p>Color: <%= car.color %></p>
+            <p>Status: <%= car.status %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+    <% } %>
+  </main>
+
+  <footer>
+    <div class="pagination">
+      <% if (pagination.currentPage > 1) { %>
+        <a href="?page=<%= pagination.currentPage - 1 %>&make=<%= filters.make %>&year=<%= filters.year %>&price=<%= filters.price %>">Previous</a>
+      <% } %>
+      <% for (let i = 1; i <= pagination.totalPages; i++) { %>
+        <a href="?page=<%= i %>&make=<%= filters.make %>&year=<%= filters.year %>&price=<%= filters.price %>" 
+           class="<%= pagination.currentPage === i ? 'active' : '' %>">
+          <%= i %>
+        </a>
+      <% } %>
+      <% if (pagination.currentPage < pagination.totalPages) { %>
+        <a href="?page=<%= pagination.currentPage + 1 %>&make=<%= filters.make %>&year=<%= filters.year %>&price=<%= filters.price %>">Next</a>
+      <% } %>
+    </div>
+
+    <div class="copyright">
+      <p>Copyright © 2024 AutoHub. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
