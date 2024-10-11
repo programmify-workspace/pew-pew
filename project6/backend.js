@@ -28,8 +28,8 @@ app.post("/send_email", (req, res) =>{
     port: 587, // Port number
     secure: false, // true for 465, false for other ports
     auth: {
-      user: 'williamsakorede1@gmail.com', // Your email
-      pass: 'touxvxwsilnbgetz' // Your app password
+      user: 'email', // Your email
+      pass: 'password' // Your app password
     }
   });
 
