@@ -1,0 +1,62 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	<link rel="stylesheet" type="text/css" href="style.css">    
+</head>                  
+<body>                  
+<div class="container">
+	<h1>Quiz</h1>
+	<form method="post" action="submit.php">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+		<br><br>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		<br><br>
+		<label for="question1">What is the capital of India?</label>
+		<input type="radio" id="question1" name="question1" value="Delhi" required>
+		<label for="Delhi">Delhi</label>
+		<input type="radio" id="question1" name="question1" value="Mumbai" required>
+		<label for="Mumbai">Mumbai</label>
+		<input type="radio" id="question1" name="question1" value="Bangalore" required>
+		<label for="Bangalore">Bangalore</label>
+		<br><br>
+		<label for="question2">What is the largest ocean in the world?</label>
+		<input type="radio" id="question2" name="question2" value="Pacific Ocean" required>
+		<label for="Pacific Ocean">Pacific Ocean</label>
+		<input type="radio" id="question2" name="question2" value="Atlantic Ocean" required>
+		<label for="Atlantic Ocean">Atlantic Ocean</label>
+		<input type="radio" id="question2" name="question2" value="Indian Ocean" required>
+		<label for="Indian Ocean">Indian Ocean</label>
+		<br><br>
+		<label for="question3">What is the national animal of India?</label>
+		<input type="radio" id="question3" name="question3" value="Elephant" required>
+		<label for="Elephant">Elephant</label>
+		<input type="radio" id="question3" name="question3" value="Lion" required>  
+		<label for="Lion">Lion</label>
+		<input type="radio" id="question3" name="question3" value="Tiger" required>
+		<label for="Tiger">Tiger</label>
+		<br><br>
+		<label for="question4">What is the national dish of India?</label>
+		<input type="radio" id="question4" name="question4" value="Momos" required>
+		<label for="Momos">Momos</label>
+		<input type="radio" id="question4" name="question4" value="Biryani" required>
+		<label for="Biryani">Biryani</label>
+		<input type="radio" id="question4" name="question4" value="Rajma" required>
+		<label for="Rajma">Rajma</label>
+		<br><br>
+		<label for="question5">What is the national sport of India?</label>
+		<input type="radio" id="question5" name="question5" value="Cricket" required>
+		<label for="Cricket">Cricket</label>
+		<input type="radio" id="question5" name="question5" value="Football" required>
+		<label for="Football">Football</label>
+		<input type="radio" id="question5" name="question5" value="Hockey" required>
+		<label for="Hockey">Hockey</label>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+</body>
+</html>

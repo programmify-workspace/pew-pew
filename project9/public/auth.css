@@ -1,0 +1,142 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('./Images/mountain-peak-rises-majestically-nature-landscape-generative-ai.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay to contrast the background */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* auth Box */
+.auth-box {
+    text-align: center;
+    max-width: 500px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent background for ethereal look */
+    border-radius: 15px;
+    border: 1px solid #ff7f5069;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    /* backdrop-filter: blur(2px);  Glass-like effect */
+}
+
+.auth-box h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #ffD700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.auth-box p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1.1rem;
+    color: #ffdead;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ff7f5069;
+    background-color: rgba(255, 218, 173, 0.2);
+    color: #ffdead;
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #ffD700;
+    box-shadow: 0px 0px 10px #ffD700;
+}
+
+.input-group input::placeholder {
+    color: #cab28d;
+}
+
+/* Button Styling */
+.auth-btn {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: #FF7F50;
+    border: none;
+    border-radius: 5px;
+    color: #ffdead;
+    cursor: pointer;
+    box-shadow: 0px 0px 1px #ffD700;
+    z-index: 2;
+}
+
+.auth-btn:hover {
+    background-color: #ffD700;
+    color: #fff;
+    box-shadow: 0px 0px 15px #ffD700;
+}
+
+.auth-btn::before, .auth-btn::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    height: 75%;
+    width: 40px;  
+    border-bottom-left-radius: 50%;
+    transform: rotate(315deg);
+    z-index: -1;
+}
+
+.auth-btn::before {
+    left: 0%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background: #FF7F50;
+}
+
+.auth-btn::after {
+    right: 0%;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background: #FF7F50;
+}
+
+.auth-btn:hover::after, .auth-btn:hover::before {
+    background: #ffD700;
+}
+
+.auth-box div a {
+    text-decoration: none;
+    color: #ffdead;
+}

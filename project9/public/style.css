@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Uncial Antiqua", "Garamond", Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    color: #E6E6FA;
+    background: url(./Images/mountain-peak-rises-majestically-nature-landscape-generative-ai.jpg);
+    background-position: center;
+    background-size: 120%;
+    animation: zoom 20s ease-in-out 1;
+    -moz-animation: zoom 20s ease-in-out 1;
+    -webkit-animation: zoom 20s ease-in-out 1;
+    -o-animation: zoom 20s ease-in-out 1;
+    -ms-animation: zoom 20s ease-in-out 1;
+    animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+    -o-animation-delay: 1s;
+    -ms-animation-delay: 1s;
+}
+
+@keyframes zoom {
+    0% {
+        background-size: 100%;
+    }
+    25% {
+       background-size: 140%;
+    }
+    50% {
+        background-size: 170%;
+        background-position: center 20%;
+    }
+    75% {
+        background-size: 100%;
+        background-position: 40% 60%;
+    }
+    100% {
+        background-size: 120%;
+        background-position: center;
+    }
+}
+
+body::before {
+    content: ''; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    background-color: rgba(0, 0, 0, 0.452);
+    z-index: 1; 
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50vh;
+    width: 100%;
+    padding: 1em;
+    z-index: 2;
+}
+
+.container > * {
+    height: 100%;
+}
+
+h1, h2 {
+    font-family: 'Cinzel';
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: 900;
+    color: #ffd700;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+#startForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+
+#subjects {
+    font-size: 1.2em;
+    padding: .8em 1em;
+    width: 70%;
+    background-color: #69696981;
+    color: #FFDEAD;
+    cursor: pointer;
+}
+
+#subjects:hover {
+    background-color: #6969693b;
+    border: 0.1px solid #FFDEAD;
+}
+
+#subjects:focus {
+    outline: none;
+}
+
+#subjects option {
+    font-size: inherit;
+    background-color: #696969;
+    color: #E6E6FA;
+}
+
+#subjects option:hover {
+    background-color: #FF7F50;
+}
+
+.start-btn {
+    position: relative;
+    background: linear-gradient( to right, #FF7F50, #FFD700 );/* #7206b1 */
+    color: #fff;
+    padding: .6em 2.1em;
+    width: 50%;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.6em;
+    font-family: "Garamond";
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    background: #CD853F;
+}
+
+.start-btn::before, .start-btn::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    height: 75%;
+    width: 40px;  
+    border-bottom-left-radius: 50%;
+    transform: rotate(315deg);
+    z-index: -1;
+}
+
+.start-btn::before {
+    left: 0;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background: #FF7F50;
+}
+
+.start-btn::after {
+    right: 0;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background: #FFD700;
+}
+
+.start-btn:hover::after, .start-btn:hover::before {
+    background: #CD853F;
+}
+
+.toscore-container {
+    background-color: #69696981;
+    padding: 1.3em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 30%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    overflow: visible;
+    transition: 0.3s;
+}
+
+.toscore-container a:hover {
+    color: #FFD700;
+}
+
+.toscore-container::after {
+    content: 'Scores';
+    position: relative;
+    top: -.4em;
+    font-size: 1.4em;
+    opacity: 0;
+}
+
+.logout-container {
+    background-color: #69696981;
+    padding: 1.3em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30%;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    overflow: visible;
+    transition: 0.3s;
+}
+
+.logout-container::after {
+    content: 'Logout';
+    position: relative;
+    top: -.4em;
+    font-size: 1.4em;
+    opacity: 0;
+}
+
+.logout-container:hover::after, .toscore-container:hover::after {
+    opacity: 1;
+}
+
+.logout-container:hover, .toscore-container:hover {  
+    background-color: #6969693b;
+}
+
+.logout-container a, .toscore-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #FFDEAD;
+    font-size: 1.4em;
+}
+
+.logout-container a:hover {
+    color: #FF7F50;
+}
+
+footer {
+    z-index: 1;
+}

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/quiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <title>Quest 1 - Mathematics</title>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-container">
+            <div id="quiz-question">
+                <h2 id="question">What is the basic unit of life?</h2>
+            </div>
+            <form id="quiz" action="/score" method="post">
+                <div class="options">
+                    <div class="upper-options" >
+                        <div class="option">
+                            <p>Cell</p>
+                        </div>
+                        <div class="option">
+                            <p>Atom</p>
+                        </div>
+                    </div>
+                    <div class="lower-options">
+                        <div class="option">
+                            <p>Tissue</p>
+                        </div>
+                        <div class="option">
+                            <p>Organ</p>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="topic" value="<%= quiz[0].topic %>">
+                <input type="hidden" data-value="quiz-result" name="quiz-result">
+            </form>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        const quiz = [
+        <% quiz.forEach(item => { %>
+            {
+                id: '<%= item.id %>',  // Added item.id here
+                question: '<%= item.question %>',
+                options: [
+                    '<%= item.option1 %>',
+                    '<%= item.option2 %>',
+                    '<%= item.option3 %>',
+                    '<%= item.option4 %>'
+                ]
+            },
+        <% }); %>
+        ];
+
+    </script>
+    <script src="../script.js" ></script>
+</body>
+</html>

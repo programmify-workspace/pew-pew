@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="score.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>Quiz Results</title>
+</head>
+<body>
+    <div class="score-container">
+        <% if (viewType === 'quizResult') { %>
+            <h1>Mystical Revelations</h1>
+            <div class="result-summary">
+                <p>You have mastered <%= correctCount %> out of <%= totalQuestions %> challenges!</p>
+                <p>Arcane Power: <%= scorePercentage.toFixed(2) %>%</p>
+            </div>
+
+            <div class="details-section">
+                <h2>Quest Details</h2>
+                <ul class="result-list">
+                    <% detailedResults.forEach(result => { %>
+                        <li class="result-item <%= result.isCorrect ? 'correct' : 'incorrect' %>">
+                            <h3><%= result.question %></h3>
+                            <p>Your Answer: <%= result.userChoice %></p>
+                            <p>True Answer: <%= result.correctAnswer %></p>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } else if (viewType === 'gameHistory') { %>
+            <h1>Scroll of Past Quests</h1>
+            <div class="game-history">
+                <% games.forEach(game => { %>
+                    <div class="game-card">
+                        <h3>Quest: <%= game.topic %></h3>
+                        <p>Mastery Level: <%= game.score.toFixed(2) %>%</p>
+                        <p>Completed: <%= new Date(game.created_at).toLocaleDateString('en-US', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        }) %></p>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+
+        <a href="/" class="back-link">Return to the Realm</a>
+    </div>
+</body>
+</html>

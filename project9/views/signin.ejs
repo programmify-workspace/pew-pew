@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="overlay">
+            <div class="auth-box">
+                <h1>Embark on Your Journey</h1>
+                <p>Enter your credentials to continue your Quest</p>
+
+                <form action="/sign-in" method="post">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="character@email.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="LegendaryPassword" required>
+                    </div>
+
+                    <button type="submit" class="auth-btn">Sign In</button>
+                </form>
+                <div>
+                    <p>Do not have an account yet? 
+                    <a href="/sign-up">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

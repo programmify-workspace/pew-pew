@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>HighQuest - quiz game</title>
+</head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <h1>highQuest</h1>
+            <h3>This is a fun quiz game where you can test your knowledge on different subjects.</p>
+        </div>
+        <form action="/quiz" method="post" id="startForm">
+            <select name="subject" id="subjects">
+                <% subjects.forEach(subject => { %>
+                    <option value="<%= subject.topic %>"><%= subject.topic.toLowerCase().charAt(0).toUpperCase() + subject.topic.slice(1) %></option>
+                <% }); %>
+            </select>
+            <button type="submit" class="start-btn">Start Quest</button>
+        </form>
+        <div class="toscore-container">
+            <a href="/score" title="Scores"><i class="fa-solid fa-crown"></i></a>
+        </div>
+        <div class="logout-container">
+            <a href="/logout" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
+    </div>
+    <footer>
+        <small>Image by vecstock on <a href="https://www.freepik.com/free-photo/mountain-peak-rises-majestically-nature-landscape-generative-ai_41074301.htm#fromView=search&page=1&position=3&uuid=9b73355a-68b3-4d4c-85f7-e827b022f983">Freepik</a></small>
+    </footer>
+</body>
+</html>
