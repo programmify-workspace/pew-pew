@@ -1,13 +1,12 @@
 const quizForm = document.getElementById("quiz");
 
-quiz.forEach((item, index) => {
-  console.log(`Question ${index + 1}: ${item.question}`);
-  item.options.forEach((option, optionIndex) => {
-    console.log(`Option ${optionIndex + 1}: ${option}`);
-  });
-});
-
 let choiceArr = [];
+
+function decodeHTMLEntities(text) {
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = text;
+  return textarea.value;
+}
 
 function getRanQuestion() {
   window.filteredQuiz = quiz.filter((item) => !item.checked);
@@ -46,10 +45,11 @@ function renderOptions(index) {
 
   for (let i = 0; i < options.length; i++) {
     const optionId = window.filteredQuiz[index].id;
-    options[i].innerHTML = `<p>${window.filteredQuiz[index].options[i]}</p>`;
+    const decodedOption = decodeHTMLEntities(window.filteredQuiz[index].options[i]);
+    options[i].innerHTML = `<p>${decodedOption}</p>`;
     const newOption = options[i].cloneNode(true);
     options[i].parentNode.replaceChild(newOption, options[i]);
-    newOption.addEventListener('click', () => userChoice(window.filteredQuiz[index].options[i], optionId));
+    newOption.addEventListener('click', () => userChoice(decodedOption, optionId));
   }
 }
 

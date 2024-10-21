@@ -1,3 +1,8 @@
+.container {
+    height: 65vh;
+    overflow-y: auto;
+}
+
 .quiz-container {
     display: flex;
     flex-direction: column;
