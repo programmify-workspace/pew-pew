@@ -19,6 +19,6 @@ exports.protect = (req, res, next) => {
     console.log(decoded);
     next();
   } catch (err) {
-    return res.status(403).json({ message: 'Token is invalid or expired' });
+      return res.status(403).redirect('/');
   }
 };
