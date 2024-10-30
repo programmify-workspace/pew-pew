@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Let's Get Quizzical!</h1>
+        <form action="/submit" method="POST">
+            <% questions.forEach(function(question, index) { %>
+                <div class="question-container">
+                    <p class="question-text"><%= question.text %></p>
+                    <% question.options.forEach(function(option) { %>
+                        <label class="option-label">
+                            <input type="radio" name="q<%= index %>" value="<%= option %>">
+                            <span><%= option %></span>
+                        </label>
+                    <% }) %>
+                </div>
+            <% }) %>
+            <button type="submit" class="submit-button">Submit Answers</button>
+        </form>
+    </div>
+</body>
+</html>

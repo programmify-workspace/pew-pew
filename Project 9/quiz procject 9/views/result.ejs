@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Quiz Results</h1>
+        <p class="result-text">You scored <strong><%= score %></strong> out of <strong><%= totalQuestions %></strong>!</p>
+        <ul class="feedback-list">
+            <% feedback.forEach(function(item, index) { %>
+                <li>
+                    Question <%= index + 1 %>: <%= item.correct ? '✔ Correct' : '❌ Incorrect' %>
+                </li>
+            <% }) %>
+        </ul>
+        <a href="/quiz" class="start-quiz-button">Take the Quiz Again</a>
+    </div>
+</body>
+</html>
