@@ -1,0 +1,144 @@
+:root {
+    --dark: #1a1a1a;
+    --darker: #141414;
+    --turquoise: #40E0D0;
+    --lavender: #E6E6FA;
+    --orange: #FFA500;
+}
+
+/* Editor body */
+body {
+    background-color: var(--dark);
+    color: var(--lavender);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    color: var(--turquoise);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    margin: 1rem 0;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+th, td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+}
+
+th {
+    background-color: rgba(64, 224, 208, 0.1);
+}
+
+/* Code blocks */
+pre {
+    background-color: var(--darker);
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: monospace;
+    color: var(--turquoise);
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 3px solid var(--turquoise);
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Custom styles for the editor UI */
+.tox-tinymce {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
+}
+
+.tox .tox-editor-header {
+    background: var(--dark) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.tox .tox-toolbar__group {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.tox .tox-toolbar-overlord {
+    background: var(--dark) !important;
+}
+
+.tox .tox-toolbar__primary {
+    background: var(--dark) !important;
+}
+
+.tox .tox-tbtn {
+    color: var(--lavender) !important;
+}
+
+.tox .tox-tbtn:hover {
+    background: rgba(64, 224, 208, 0.1) !important;
+}
+
+.tox .tox-tbtn--enabled {
+    background: rgba(64, 224, 208, 0.2) !important;
+}
+
+/* Dialog styles */
+.tox .tox-dialog {
+    background-color: var(--dark) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.tox .tox-dialog__header {
+    background-color: var(--dark) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.tox .tox-dialog__footer {
+    background-color: var(--dark) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.tox .tox-textfield, 
+.tox .tox-listboxfield .tox-listbox,
+.tox .tox-textarea {
+    background-color: var(--darker) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--lavender) !important;
+}
+
+.tox .tox-button {
+    background-color: var(--turquoise) !important;
+    border-color: var(--turquoise) !important;
+}
+
+.tox .tox-button--secondary {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--lavender) !important;
+}

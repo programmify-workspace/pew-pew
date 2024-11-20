@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Bloggy</title>
+</head>
+<body>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 3rem 0;
+            padding: 1rem;
+        }
+
+        .pagination a, 
+        .pagination strong {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .pagination a:hover {
+            background: rgba(64, 224, 208, 0.1);
+            border-color: var(--turquoise);
+            color: var(--turquoise);
+            transform: translateY(-2px);
+        }
+
+        .pagination strong {
+            background: linear-gradient(45deg, var(--turquoise), var(--orange));
+            border: none;
+            color: white;
+        }
+
+        /* Previous/Next buttons */
+        .pagination a.prev,
+        .pagination a.next {
+            padding: 0.5rem 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pagination a.prev i,
+        .pagination a.next i {
+            font-size: 0.8rem;
+        }
+
+        /* Active page indicator */
+        .pagination .active {
+            background: linear-gradient(45deg, var(--turquoise), var(--orange));
+            color: white;
+            border: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .pagination {
+                flex-wrap: wrap;
+            }
+            
+            .pagination a,
+            .pagination strong {
+                min-width: 35px;
+                height: 35px;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+
+    <nav class="glass-nav">
+        <div class="logo">Bloggy</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#featured">Featured</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-controls">
+            <a href="/create-post" class="create-post-btn">
+                <i class="fas fa-plus"></i>
+                Create Post
+            </a>
+            <a href="/profile" class="profile-btn" title="<%= user.name %>">
+                <img src="<%= user.avatar %>" alt="Profile" class="profile-icon">
+            </a>
+        </div>
+    </nav>
+    <main>
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-clock-rotate-left"></i>
+                All Blogs
+            </h2>
+        </div>
+        <div class="grid">
+
+            <% blogs?.forEach(blog => { %>
+                <article class="card">
+                    <div class="blog-actions">
+                        <form class="blog-action-form" action="/blog/<%= blog.id %>/edit" method="GET">
+                            <button type="submit" class="blog-action-btn edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </form>
+                        
+                        <form class="blog-action-form" action="/blog/<%= blog.id %>/delete?_method=DELETE" method="POST" id="deleteForm">
+                            <button type="button" class="blog-action-btn delete" id="deleteBtn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <span class="tag">Design</span>
+                    <h2 class="post-title"><%= blog.title %></h2>
+                    <p class="post-excerpt"><%= blog.content.slice(0, 180)+'...' %></p>
+                    <div class="post-meta">
+                        <span class="read-time"> ??? min read </span>
+                    </div>
+                    <a href="<%= `/blog/${blog.id}` %>" class="read-more">
+                        Read Article <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+            <% }); %>
+        </div>
+    </main>
+
+    <footer class="pagination">
+        <% if (page > 1) { %>
+            <a href="/all-posts?page=<%= page - 1 %>" class="prev">
+                <i class="fas fa-chevron-left"></i> Previous
+            </a>
+        <% } %>
+    
+        <% 
+        // Calculate range of pages to show
+        const startPage = Math.max(1, page - 2);
+        const endPage = Math.min(totalPages, page + 2);
+        
+        // Show first page if we're not starting from it
+        if (startPage > 1) { %>
+            <a href="/all-posts?page=1">1</a>
+            <% if (startPage > 2) { %>
+                <span class="pagination-ellipsis">...</span>
+            <% } %>
+        <% } %>
+    
+        <% for (let i = startPage; i <= endPage; i++) { %>
+            <% if (i === page) { %>
+                <strong><%= i %></strong>
+            <% } else { %>
+                <a href="/all-posts?page=<%= i %>"><%= i %></a>
+            <% } %>
+        <% } %>
+    
+        <% 
+        // Show last page if we're not ending on it
+        if (endPage < totalPages) { %>
+            <% if (endPage < totalPages - 1) { %>
+                <span class="pagination-ellipsis">...</span>
+            <% } %>
+            <a href="/all-posts?page=<%= totalPages %>"><%= totalPages %></a>
+        <% } %>
+    
+        <% if (page < totalPages) { %>
+            <a href="/all-posts?page=<%= page + 1 %>" class="next">
+                Next <i class="fas fa-chevron-right"></i>
+            </a>
+        <% } %>
+    </footer>
+
+    <div class="modal-overlay"></div>
+    <div class="delete-modal">
+        <div class="delete-modal-header">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3 class="delete-modal-title">Delete Post</h3>
+        </div>
+        <div class="delete-modal-content">
+            Are you sure you want to delete this post? This action cannot be undone.
+        </div>
+        <div class="delete-modal-actions">
+            <button class="modal-btn cancel" id="cancelDelete">Cancel</button>
+            <button class="modal-btn delete" id="confirmDelete">Delete</button>
+        </div>
+    </div>
+
+
+    <script src="/javascripts/modal.js"></script>
+    <script src="/javascripts/blogUtils.js"></script>
+    <script>
+        const postExcerpt = document.querySelectorAll(".post-excerpt");
+
+        console.log(postExcerpt);
+        
+        postExcerpt.forEach(post => {
+            const postValue = post.innerHTML;
+            console.log(postValue);
+            const decodedText = window.blogUtils.decodeHTMLEntities(postValue);
+            post.innerHTML = window.blogUtils.stripHTML(decodedText);
+            let timeToRead = window.blogUtils.getReadingTime(postValue);
+            console.log(timeToRead);
+
+            const readTime = document.querySelectorAll(".read-time");
+            readTime.forEach(time => {
+                time.innerHTML = `<i class="far fa-clock"></i> ${timeToRead}`;
+            })
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+:root {
+    --turquoise: #40E0D0;
+    --lavender: #E6E6FA;
+    --orange: #FFA500;
+    --dark: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, var(--dark), #2a2a2a);
+    color: #fff;
+    min-height: 100vh;
+}
+
+.glass-nav {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--turquoise), var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--turquoise);
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.create-post-btn {
+    background: linear-gradient(45deg, var(--turquoise), var(--orange));
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.create-post-btn:hover {
+    transform: translateY(-2px);
+}
+
+.profile-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--turquoise);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--lavender);
+    overflow: hidden;
+}
+
+.profile-icon {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.1);
+}
+
+main {
+    padding: 8rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blog-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.blog-title {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #fff, var(--lavender));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tags-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tag {
+    background: rgba(64, 224, 208, 0.2);
+    color: var(--turquoise);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.cover-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--turquoise);
+}
+
+.author-details {
+    flex-grow: 1;
+}
+
+.author-name {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.author-role {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.blog-content {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.blog-content p {
+    margin-bottom: 1.5rem;
+}
+
+.blog-content h2 {
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1.5rem;
+    background: linear-gradient(45deg, #fff, var(--lavender));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.blog-content img {
+    width: 100%;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.blog-content blockquote {
+    border-left: 4px solid var(--turquoise);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.share-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.share-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    background: var(--turquoise);
+    transform: translateY(-2px);
+}
+
+.comments-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comments-header {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.comment-count {
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.comment-form {
+    margin-bottom: 3rem;
+}
+
+.comment-input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.commenter-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-input {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    color: #fff;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: var(--turquoise);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.comment-form-actions {
+    display: none;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-left: calc(40px + 1rem);
+}
+
+/* .comment-form-actions.hidden {
+    display: none;
+} */
+
+.btn-cancel {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-cancel:hover {
+    color: #fff;
+}
+
+.btn-submit {
+    background: var(--turquoise);
+    border: none;
+    color: var(--dark);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.comment {
+    display: flex;
+    gap: 1rem;
+}
+
+.comment.reply {
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.commenter-name {
+    font-weight: 500;
+    color: #fff;
+}
+
+.comment-time {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.comment-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.3rem 0;
+    transition: color 0.3s ease;
+}
+
+.action-btn:hover {
+    color: var(--turquoise);
+}
+
+.reply-form .comment-form-actions {
+    margin-top: 8px;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.reply-input {
+    width: 100%;
+    resize: vertical;
+    min-height: 60px;
+}
+
+.reply-form {
+    margin-top: 12px;
+    margin-left: 40px;
+}
+
+.pagination-controls {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.pagination-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--turquoise);
+    transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+/* Blog action forms container */
+.blog-actions {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+/* Style forms to be inline */
+.blog-action-form {
+    margin: 0;
+    padding: 0;
+}
+
+.blog-action-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.blog-action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.blog-action-btn.edit {
+    background: rgba(64, 224, 208, 0.1);
+    border-color: var(--turquoise);
+    color: var(--turquoise);
+}
+
+.blog-action-btn.edit:hover {
+    background: rgba(64, 224, 208, 0.2);
+}
+
+.blog-action-btn.delete {
+    background: rgba(255, 0, 0, 0.1);
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
+.blog-action-btn.delete:hover {
+    background: rgba(255, 0, 0, 0.2);
+}
+
+/* Delete confirmation modal */
+.delete-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    z-index: 1100;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: none;
+}
+
+.delete-modal.active {
+    display: block;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1050;
+    display: none;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+.delete-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.delete-modal-header i {
+    color: #ff4444;
+    font-size: 1.5rem;
+}
+
+.delete-modal-title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.delete-modal-content {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.delete-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.modal-btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.modal-btn.cancel {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-btn.cancel:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-btn.delete {
+    background: #ff4444;
+    color: white;
+}
+
+.modal-btn.delete:hover {
+    background: #ff6666;
+}
+
+/* Additional styles for card actions */
+.card .blog-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
+}
+
+.card .blog-action-btn {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.card .blog-action-btn i {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .blog-title {
+        font-size: 2rem;
+    }
+
+    .blog-meta {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .cover-image {
+        height: 250px;
+    }
+
+    .comment.reply {
+        margin-left: 1rem;
+    }
+      
+   .comment-form-actions {
+        padding-left: 0;
+    }
+}

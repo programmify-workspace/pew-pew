@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/editProfile.css">
+    <title>Bloggy - Edit Profile</title>
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo">Bloggy</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#featured">Featured</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-controls">
+            <a href="/create-post" class="create-post-btn">
+                <i class="fas fa-plus"></i>
+                Create Post
+            </a>
+            <a href="/profile" class="profile-btn" title="<%= user.name %>">
+                <img src="<%= user.avatar %>" alt="Profile" class="profile-icon">
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="edit-profile-container">
+            <div class="edit-profile-header">
+                <h1>Edit Profile</h1>
+                <a href="/profile" class="edit-profile-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Profile
+                </a>
+            </div>
+
+            <form id="edit-profile-form" class="edit-profile-form" action="/edit-profile" method="POST" enctype="multipart/form-data">
+                <div class="profile-avatar-container">
+                    <img src="<%= user.avatar %>" alt="Profile Avatar" id="profile-avatar" class="profile-avatar">
+                    <button type="button" id="avatar-upload-btn" class="avatar-upload-btn">
+                        <i class="fas fa-upload"></i>
+                        Change Avatar
+                    </button>
+                    <input type="file" id="avatar-upload" name="avatar" accept="image/*" style="display: none;" />
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="<%= user.name %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="<%= user.email %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="role" id="role" name="role" value="<%= user.role %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio"><%= user.bio %></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+
+                <button type="submit" class="save-changes-btn">
+                    <i class="fas fa-save"></i>
+                    Save Changes
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="/javascripts/profile.js"></script>
+</body>
+</html>

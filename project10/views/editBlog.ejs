@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit post <%= blog?.title %></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/editBlog.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="logo">Bloggy</div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#featured">Featured</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-controls">
+            <a href="/create-post" class="create-post-btn">
+                <i class="fas fa-plus"></i>
+                Create Post
+            </a>
+            <a href="/profile" class="profile-btn" title="<%= user?.name %>">
+                <img src="<%= user?.avatar %>" alt="Profile" class="profile-icon">
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <form id="blogForm" class="create-post-form" action="/blog/<%= blog.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="form-header">
+                <h1 class="form-title">Editing Post "<%= blog?.title %>"</h1>
+                <p>Everyone makes mistakes &colon;&rpar;</p>
+            </div>
+
+            <div class="form-group">
+                <label>Cover Image</label>
+                <div id="coverImagePreview" class="cover-image-preview">
+                    <%- blog?.coverImage ? `<img src="${blog?.coverImage}" alt="Cover Image" class="cover-image"><button type="button" class="remove-cover-image"><i class="fas fa-times"></i></button>` : `<i class="fas fa-cloud-upload-alt fa-2x"></i><span>Click to upload cover image</span>` %>
+                </div>
+                <input type="file" id="coverImageInput" name="coverImage" accept="image/*" style="display: none;" />
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control" name="title"
+                value="<%= blog.title %>" 
+                placeholder="Title" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tags</label>
+                <div class="tag-input">
+                    <div class="tag">
+                        Design
+                        <button type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="tag">
+                        Tutorial
+                        <button type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content</label>
+                <input type="hidden" name="content" id="hidden-content" required>
+                <textarea class="form-control content-editor" placeholder="Write your post content here..." id="my-expressjs-tinymce-app"><%= blog?.content %></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-publish">
+                    <i class="fas fa-paper-plane"></i>
+                    Edit Post
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+    <script type="application/javascript" src= "/javascripts/my-tinymce-config.js"></script>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>
