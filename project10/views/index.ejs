@@ -31,7 +31,7 @@
             <div>
                 <span class="tag">Featured</span>
                 <h1 class="post-title"><%= featuredBlogs.title %></h1>
-                <p class="post-excerpt"><%= featuredBlogs.content.slice(0, 180)+'...' %></p>
+                <p class="post-excerpt"><%= featuredBlogs.content %></p>
                 <div class="post-meta">
                     <span class="read-time"> ??? </span>
                     <span><i class="far fa-calendar"></i> <%= new Date(featuredBlogs.created_at).toLocaleDateString('en-US', { 
@@ -70,9 +70,9 @@
                 <article class="card">
                     <span class="tag">Design</span>
                     <h2 class="post-title"><%= blog.title %></h2>
-                    <p class="post-excerpt"><%= blog.content.slice(0, 180)+'...' %></p>
+                    <p class="post-excerpt"><%= blog.content %></p>
                     <div class="post-meta">
-                        <span class="read-time"> ??? </span>
+                        <span class="read-time"> ??? min read </span>
                     </div>
                     <a href="<%= `/blog/${blog.id}` %>" class="read-more">
                         Read Article <i class="fas fa-arrow-right"></i>
@@ -95,19 +95,18 @@
 
         console.log(postExcerpt);
         
-        postExcerpt.forEach(post => {
+        postExcerpt.forEach((post, index) => {
             const postValue = post.innerHTML;
-            console.log(postValue);
             const decodedText = window.blogUtils.decodeHTMLEntities(postValue);
-            post.innerHTML = window.blogUtils.stripHTML(decodedText);
-            let timeToRead = window.blogUtils.getReadingTime(postValue);
-            console.log(timeToRead);
+            const stripedHtml = window.blogUtils.stripHTML(decodedText);
+            let timeToRead = window.blogUtils.getReadingTime(stripedHtml);
+            const slicedContent = window.blogUtils.sliceContent(stripedHtml);
+            post.innerHTML = slicedContent;
 
+            // Update the corresponding read-time element for the current post
             const readTime = document.querySelectorAll(".read-time");
-            readTime.forEach(time => {
-                time.innerHTML = `<i class="far fa-clock"></i> ${timeToRead}`;
-            })
-        })
+            readTime[index].innerHTML = `<i class="far fa-clock"></i> ${timeToRead}`;
+    });
 
     </script>
 </body>

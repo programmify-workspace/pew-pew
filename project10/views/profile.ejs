@@ -140,9 +140,9 @@
                 <article class="card">
                     <span class="tag">Design</span>
                     <h2 class="post-title"><%= blog.title %></h2>
-                    <p class="post-excerpt"><%= blog.content.slice(0, 100) + '...' %></p>
+                    <p class="post-excerpt"><%= blog.content %></p>
                     <div class="post-meta">
-                        <span class="read-time"><i class="far fa-clock"></i>??? min read</span>
+                        <span class="read-time"><i class="far fa-clock"></i> ??? min read</span>
                         <span><i class="far fa-calendar"></i> <%= new Date(blog.created_at).toLocaleDateString('en-US', { 
                             year: 'numeric', 
                             month: 'short', 
@@ -163,19 +163,18 @@
 
         console.log(postExcerpt);
         
-        postExcerpt.forEach(post => {
+        postExcerpt.forEach((post, index) => {
             const postValue = post.innerHTML;
-            console.log(postValue);
             const decodedText = window.blogUtils.decodeHTMLEntities(postValue);
-            post.innerHTML = window.blogUtils.stripHTML(decodedText);
-            let timeToRead = window.blogUtils.getReadingTime(postValue);
-            console.log(timeToRead);
+            const stripedHtml = window.blogUtils.stripHTML(decodedText);
+            let timeToRead = window.blogUtils.getReadingTime(stripedHtml);
+            const slicedContent = window.blogUtils.sliceContent(stripedHtml);
+            post.innerHTML = slicedContent;
 
+            // Update the corresponding read-time element for the current post
             const readTime = document.querySelectorAll(".read-time");
-            readTime.forEach(time => {
-                time.innerHTML = `<i class="far fa-clock"></i> ${timeToRead}`;
-            })
-        })
+            readTime[index].innerHTML = `<i class="far fa-clock"></i> ${timeToRead}`;
+    });
     </script>
 </body>
 </html>

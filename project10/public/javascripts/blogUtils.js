@@ -12,6 +12,9 @@ const BlogUtils = {
         // Return just the text content
         return temp.textContent || temp.innerText || '';
     },
+    sliceContent(content) {
+        return content.slice(0, 180)+'...'
+    },
     getReadingTime(text) {
         // Average reading speed (words per minute)
         const wordsPerMinute = 225;
